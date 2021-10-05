@@ -16,11 +16,14 @@
 }
 
 #tweet-text {
+  margin-top: 10px;
   border-top: none;
   border-left: none;
   border-right: none;
   background-color: #f4f1ec;
   border-bottom-width: 3px;
   border-color: black;
+  outline: none;
+  height: 40px;
 
 }
