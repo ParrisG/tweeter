@@ -1,0 +1,1 @@
+console.log("Yes, composer-char is linked correctly");
