@@ -9,6 +9,8 @@ nav {
   justify-content: space-between;
   align-items: flex-end;
   z-index: 1;
+  position: sticky;
+  top: 0;
 
 }
 
