@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-.below-new-tweet {
+footer {
   padding-top: .5em;
   display:flex;
   justify-content: space-between;
