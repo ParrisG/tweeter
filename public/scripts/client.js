@@ -6,13 +6,13 @@
 $(document).ready(function() {
 
 
-  const getTweets = function() {
+  const loadTweets = function() {
     $.get("/tweets/", function(data) {
       renderTweets(data);
     })
   };
 
-  getTweets();
+  loadTweets();
 
   const createTweetElement = function(tweetObj) {
     // Creates a new tweet article when provided the tweet object
@@ -53,14 +53,14 @@ $(document).ready(function() {
 
 
 
-  // Handling the actual submission of the new tweet to the server
+  // New Text Form Submit handler
   const $newTweetForm = $("#new-tweet");
   $newTweetForm.on("submit", function(event) {
     event.preventDefault();
     const serializedData = $(this).serialize();
     
     $.post("/tweets/", serializedData, (response) => {
-      getTweets();
+      loadTweets();
     });
 
   })
