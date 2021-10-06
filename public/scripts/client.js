@@ -6,7 +6,7 @@
 $(document).ready(function() {
 
   // Test / driver code (temporary). Eventually will get this from the server.
-  const tweetData = {
+  const tweetData = [{
     "user": {
       "name": "Newton",
       "avatars": "https://i.imgur.com/73hZDYK.png",
@@ -16,10 +16,19 @@ $(document).ready(function() {
         "text": "If I have seen further it is by standing on the shoulders of giants"
       },
     "created_at": 1461116232227
-  }
+  }]
+
+  const getTweets = function() {
+    $.get("/tweets/", function(data) {
+      renderTweets(data);
+    })
+  };
+
+  getTweets();
 
   const createTweetElement = function(tweetObj) {
-    const $tweet = $(`
+    // Creates a new tweet article when provided the tweet object
+    let $tweet = $(`
     <article class="tweet">
       <header>
         <span>
@@ -42,11 +51,43 @@ $(document).ready(function() {
     return $tweet;
   };
 
-  const $tweet = createTweetElement(tweetData);
+
+  const renderTweets = function(tweets) {
+    //accepts an array of tweets, loops through them calling createTweetElement for each tweet, then appends the returned tweet article to the tweets container
+    const $tweetsContainer = $("#tweets-container");
+    $tweetsContainer.empty();
+
+    for (const tweet of tweets) {
+      const $tweet = createTweetElement(tweet);
+      $tweetsContainer.prepend($tweet);
+    }
+  };
+
+
+
+
+  // Handling the actual submission of the new tweet to the server
+  const $newTweetForm = $("#new-tweet");
+  $newTweetForm.on("submit", function(event) {
+    event.preventDefault();
+    const serializedData = $(this).serialize();
+    
+    $.post("/tweets/", serializedData, (response) => {
+      getTweets();
+    });
+
+  })
+
+
+
+
 
   // Test / driver code (temporary)
-  console.log($tweet); // to see what it looks like
-  $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  renderTweets(tweetData);
+
+  // // Test / driver code (temporary)
+  // console.log($tweet); // to see what it looks like
+  // $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 
 
 

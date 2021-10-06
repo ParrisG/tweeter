@@ -57,7 +57,7 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form id="new-tweet" action="/tweets" method="POST">
+        <form id="new-tweet">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <footer>
@@ -67,25 +67,7 @@
         </form>
       </section>
       <section id="tweets-container">
-        <article class="tweet">
-          <header>
-            <span>
-              <img src=$(tweetObj.user.avatars)>
-              <span>user.name</span>
-            </span>
-            <span class="user-handle" >user Handle</span>
-          </header>
-          <p>User tweet is printed here</p>
-          <footer>
-            <span>10 days ago</span>
-            <span>
-              <i class="fas fa-flag"></i>
-              <i class="fas fa-retweet"></i>
-              <i class="fas fa-heart"></i>
-            </span>
-          </footer>
-
-        </article>
+      
       </section>
 
 
