@@ -63,16 +63,19 @@
           </footer>
         </form>
       </section>
-      <section id="tweet-container">
+      <section id="tweets-container">
         <article class="tweet">
           <header>
-            <span class="user-Pic-Name" >imagefile, UserName</span>
+            <span>
+              <img src=$(tweetObj.user.avatars)>
+              <span>user.name</span>
+            </span>
             <span class="user-handle" >user Handle</span>
           </header>
           <p>User tweet is printed here</p>
           <footer>
             <span>10 days ago</span>
-            <span class="tweet-icons">
+            <span>
               <i class="fas fa-flag"></i>
               <i class="fas fa-retweet"></i>
               <i class="fas fa-heart"></i>
