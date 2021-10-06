@@ -57,6 +57,8 @@ $(document).ready(function() {
   const $newTweetForm = $("#new-tweet");
   $newTweetForm.on("submit", function(event) {
     event.preventDefault();
+    const $charCounter = $("#char-counter").val();
+    console.log($charCounter);
     const serializedData = $(this).serialize();
     
     $.post("/tweets/", serializedData, (response) => {
