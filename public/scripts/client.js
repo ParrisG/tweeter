@@ -5,6 +5,10 @@
  */
 $(document).ready(function() {
 
+  //hide the error message in the new-tweet form
+  const $errorMsg = $(".tweet-validation-error");
+  $errorMsg.hide();
+
   //Define the escape function to use on the user input in the createTweetElement template literal below.
   const escape = function (str) {
     let div = document.createElement("div");
@@ -66,10 +70,10 @@ $(document).ready(function() {
     // Validate that the message is between 1 and 140 characters
     const $charCounter = $("#char-counter").val();
     if ($charCounter > 139) {
-      alert("There is no message to be tweet!");
+      $errorMsg.text("Error: There is no message to tweet!").show();
       return;
     } else if ($charCounter < 0) {
-      alert("Tweets has exceeded character limit.");
+      $errorMsg.text("Error: tweet has exceeded character limit!");
       return;
     }
     const serializedData = $(this).serialize();
