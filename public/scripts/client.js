@@ -14,11 +14,10 @@ $(document).ready(function() {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  }
+  };
 
-
+  // Creates a new tweet article when provided the tweet object
   const createTweetElement = function(tweetObj) {
-    // Creates a new tweet article when provided the tweet object
     let $tweet = $(`
     <article class="tweet">
       <header>
@@ -42,7 +41,6 @@ $(document).ready(function() {
     return $tweet;
   };
 
-
   const renderTweets = function(tweets) {
     //accepts an array of tweets, loops through them calling createTweetElement for each tweet, then appends the returned tweet article to the tweets container
     const $tweetsContainer = $("#tweets-container");
@@ -60,7 +58,12 @@ $(document).ready(function() {
     })
   };
 
-  loadTweets();
+  // Clears the new-tweet form after successful submission
+  const clearTheForm = () => {
+    let text = "";
+    $("#tweet-text").val(text);
+    $("#char-counter").text("140");
+  };
 
   // New Text Form Submit handler
   const $newTweetForm = $("#new-tweet");
@@ -79,19 +82,17 @@ $(document).ready(function() {
       $errorMsg.slideDown(100);
       return;
     }
-
-    // After validations proceed with serializing and posting the tweet
     const serializedData = $(this).serialize();
     
     $.post("/tweets/", serializedData, (response) => {
       loadTweets();
-      let text = "";
-      $('#tweet-text').val(text);
-      $("#char-counter").text("140");
+      clearTheForm();
     });
 
+  });
 
-  })
+  //loads the inital tweets onto the page
+  loadTweets();
 
 });
 
