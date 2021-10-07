@@ -85,7 +85,8 @@ $(document).ready(function() {
     
     $.post("/tweets/", serializedData, (response) => {
       loadTweets();
-      $('#new-tweet').trigger("reset");
+      let text = "";
+      $('#tweet-text').val(text);
       $("#char-counter").text("140");
     });
 
