@@ -24,6 +24,19 @@ footer {
   border-bottom-width: 3px;
   border-color: black;
   outline: none;
-  height: 40px;
+  height: 60px;
+}
 
+.tweet-validation-error {
+  font-family: Arial, Helvetica, sans-serif;
+  color: red;
+  border-style: solid;
+  padding: 4px;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* This prevents the hover color change defined on all i elements in the tweet.css file. */
+.tweet-validation-error i:hover {
+  color: red;
 }

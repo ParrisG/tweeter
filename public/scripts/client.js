@@ -70,10 +70,12 @@ $(document).ready(function() {
     // Validate that the message is between 1 and 140 characters
     const $charCounter = $("#char-counter").val();
     if ($charCounter > 139) {
-      $errorMsg.text("Error: There is no message to tweet!").show();
+      $errorMsg.children("span").text("Error: There is no message to tweet!");
+      $errorMsg.show();
       return;
     } else if ($charCounter < 0) {
-      $errorMsg.text("Error: tweet has exceeded character limit!");
+      $errorMsg.children("span").text("Error: tweet has exceeded character limit!");
+      $errorMsg.show();
       return;
     }
     const serializedData = $(this).serialize();
