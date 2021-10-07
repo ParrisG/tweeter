@@ -79,11 +79,16 @@ $(document).ready(function() {
       $errorMsg.slideDown(100);
       return;
     }
+
+    // After validations proceed with serializing and posting the tweet
     const serializedData = $(this).serialize();
     
     $.post("/tweets/", serializedData, (response) => {
       loadTweets();
+      $('#new-tweet').trigger("reset");
+      $("#char-counter").text("140");
     });
+
 
   })
 
