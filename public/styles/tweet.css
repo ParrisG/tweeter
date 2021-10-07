@@ -2,6 +2,7 @@ article {
   border: 3px;
   border-color: black;
   border-style: solid;
+  border-radius: 5px;
   padding: .5em;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
@@ -22,14 +23,20 @@ article.tweet header {
   padding: .5em;
 }
 
+.user-handle {
+  color: grey;
+}
+
 article.tweet p {
   border-color: black;
   border-style: solid;
   border-top: none;
   border-left: none;
   border-right: none;
-  padding-bottom: 1.75em;
+  padding-bottom: 1em;
   padding-left: 1em;
+  margin-top: 2em;
+  font-size: 30px;
 }
 
 article.tweet footer{
