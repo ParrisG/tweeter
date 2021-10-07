@@ -5,14 +5,13 @@
  */
 $(document).ready(function() {
 
+  //Define the escape function to use on the user input in the createTweetElement template literal below.
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
 
-  const loadTweets = function() {
-    $.get("/tweets/", function(data) {
-      renderTweets(data);
-    })
-  };
-
-  loadTweets();
 
   const createTweetElement = function(tweetObj) {
     // Creates a new tweet article when provided the tweet object
@@ -25,7 +24,7 @@ $(document).ready(function() {
         </span>
         <span class="user-handle" >${tweetObj.user.handle}</span>
       </header>
-      <p>${tweetObj.content.text}</p>
+      <p>${escape(tweetObj.content.text)}</p>
       <footer>
         <span>${timeago.format(tweetObj.created_at)}</span>
         <span>
@@ -51,14 +50,28 @@ $(document).ready(function() {
     }
   };
 
+  const loadTweets = function() {
+    $.get("/tweets/", function(data) {
+      renderTweets(data);
+    })
+  };
 
+  loadTweets();
 
   // New Text Form Submit handler
   const $newTweetForm = $("#new-tweet");
   $newTweetForm.on("submit", function(event) {
     event.preventDefault();
+
+    // Validate that the message is between 1 and 140 characters
     const $charCounter = $("#char-counter").val();
-    console.log($charCounter);
+    if ($charCounter > 139) {
+      alert("There is no message to be tweet!");
+      return;
+    } else if ($charCounter < 0) {
+      alert("Tweets has exceeded character limit.");
+      return;
+    }
     const serializedData = $(this).serialize();
     
     $.post("/tweets/", serializedData, (response) => {
