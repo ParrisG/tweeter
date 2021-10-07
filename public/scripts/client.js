@@ -66,16 +66,17 @@ $(document).ready(function() {
   const $newTweetForm = $("#new-tweet");
   $newTweetForm.on("submit", function(event) {
     event.preventDefault();
+    $errorMsg.slideUp(100);
 
     // Validate that the message is between 1 and 140 characters
     const $charCounter = $("#char-counter").val();
     if ($charCounter > 139) {
       $errorMsg.children("span").text("Error: There is no message to tweet!");
-      $errorMsg.show();
+      $errorMsg.slideDown(100);
       return;
     } else if ($charCounter < 0) {
       $errorMsg.children("span").text("Error: tweet has exceeded character limit!");
-      $errorMsg.show();
+      $errorMsg.slideDown(100);
       return;
     }
     const serializedData = $(this).serialize();
