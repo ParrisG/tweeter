@@ -31,3 +31,23 @@ main {
   margin: auto;
   width: 90%;
 }
+
+/* Making the layout responsive*/
+/* Desktop Styles */
+@media screen and (min-width:700px) {
+
+header {
+  width: 30vw;
+  height: 30vw;
+  margin: 2em;
+  float: left;
+}
+
+main.container {
+  width: 50vw;
+  margin: 2em;
+  float: right
+}
+
+
+}
