@@ -34,7 +34,7 @@ main {
 
 /* Making the layout responsive*/
 /* Desktop Styles */
-@media screen and (min-width:700px) {
+@media screen and (min-width:1024px) {
 
 header {
   width: 30vw;
