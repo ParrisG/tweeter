@@ -22,7 +22,7 @@ nav button {
 
 
 .navbar-logo {
-  font-family: "Bungee"; 
+  font-family: "Bungee", 'sans-serif'; 
   font-size: xx-large;
   padding-bottom: 0.75em;
 }

@@ -10,7 +10,7 @@ $(document).ready(function() {
   $errorMsg.hide();
 
   //Define the escape function to use on the user input in the createTweetElement template literal below.
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
@@ -55,7 +55,7 @@ $(document).ready(function() {
   const loadTweets = function() {
     $.get("/tweets/", function(data) {
       renderTweets(data);
-    })
+    });
   };
 
   // Clears the new-tweet form after successful submission
@@ -84,7 +84,7 @@ $(document).ready(function() {
     }
     const serializedData = $(this).serialize();
     
-    $.post("/tweets/", serializedData, (response) => {
+    $.post("/tweets/", serializedData, () => {
       loadTweets();
       clearTheForm();
     });
