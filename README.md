@@ -8,9 +8,9 @@ This project also utilizes responsive design elements, with the mobile view for 
 
 ## Final Product
 
-!["This is the mobile view of Tweeter"](#)
+!["This is the mobile view of Tweeter"](https://github.com/ParrisG/tweeter/blob/master/docs/Tweeter_Mobile_View.png?raw=true)
 
-!["Here is Tweeter for laptops/desktops"](#)
+!["Here is Tweeter for laptops/desktops"](https://github.com/ParrisG/tweeter/blob/master/docs/Tweeter_Laptop_View.png?raw=true)
 
 ## Dependencies
 
